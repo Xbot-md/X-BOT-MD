@@ -3,10 +3,11 @@
   "version": "2.0.1",
   "description": "Bot created by DavidX",
   "main": "index.js",
-  "scripts": {
-    "start": "pm2 start. --attach --name XBOT-MD",
-    "stop": "pm2 stop XBOT-MD",
-    "restart": "pm2 restart XBOT-MD"
+    "scripts": {
+    "start": "pm2 start . --attach --name  X-BOT-MD",
+    "docker": "pm2-runtime start . --name ISX-BOT-MD",
+    "stop": "pm2 stop X-BOT-MD",
+    "postinstall": "node -e \"try { require('sharp') } catch (e) { process.exit(1); }\" || yarn add --ignore-engines sharp@0.33.5"
   },
   "dependencies": {
     
@@ -63,5 +64,8 @@
     "wa-sticker-formatter": "^4.4.4",
     "wa_set_pkg": "1.0.5",
     "yt-search": "2.11.1"
+  },
+   "engines": {
+    "node": ">=20.0.0"
   }
 }
