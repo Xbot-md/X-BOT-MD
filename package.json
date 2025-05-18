@@ -3,11 +3,14 @@
   "version": "2.0.1",
   "description": "Bot created by DavidX",
   "main": "index.js",
-    "scripts": {
-    "start": "pm2 start . --attach --name  X-BOT-MD",
-    "docker": "pm2-runtime start . --name ISX-BOT-MD",
-    "stop": "pm2 stop X-BOT-MD",
-    "postinstall": "node -e \"try { require('sharp') } catch (e) { process.exit(1); }\" || yarn add --ignore-engines sharp@0.33.5"
+  "engines": {
+    "node": ">=20.x",
+    "npm": ">=10.x"
+  },
+  "scripts": {
+    "start": "pm2 start index.js --deep-monitoring --attach --name XBOT-MD",
+    "stop": "pm2 stop XBOT-MD",
+    "restart": "pm2 restart XBOT-MD"
   },
   "dependencies": {
     
@@ -18,7 +21,7 @@
     "@mrnima/facebook-downloader": "1.0.0",
     "@mrnima/tiktok-downloader": "1.0.0",
     "@vitalets/google-translate-api": "^9.2.0",
-    "@whiskeysockets/baileys": "6.7.17",
+    "@whiskeysockets/baileys": "npm:@fizzxydev/baileys-pro@8.7.1",
     "acrcloud": "^1.4.0",
     "adm-zip": "^0.5.16",
     "api-dylux": "1.8.5",
