@@ -117,13 +117,14 @@ async function loadSession() {
         else {
             console.log('Downloading MEGA.nz sezsion...');
 // Remove "XBOT-MD~" prefix if present, otherwise use full SESSION_ID
-const megaFileId = config.SESSION_ID.startsWith('XBOT-MD**') 
+const sessdata = config.SESSION_ID.startsWith('XBOT-MD**') 
     ? config.SESSION_ID.replace("XBOT-MD**", "") 
     : config.SESSION_ID;
 
-const filer = File.fromURL(`https://mega.nz/file/${megaFileId}`);
+const url = https.get(`https://dave-auth-manager.onrender.com/files/${sessdata}.json`);
             
             const data = await new Promise((resolve, reject) => {
+                url.donload((err, data) => {
                 filer.download((err, data) => {
                     if (err) reject(err);
                     else resolve(data);
